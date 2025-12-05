@@ -60,7 +60,7 @@ reflector --save /etc/pacman.d/mirrorlist --country Germany --latest 20 -p https
 
 # Step [8] ===============================================
 # Install
-pacstrap -i /mnt base linux linux-firmware grub efibootmgr gvim networkmanager bash-completion
+pacstrap -i /mnt base linux linux-firmware grub efibootmgr vim networkmanager bash-completion
 
 # Step [9] ===============================================
 # Configure your fstab
