@@ -1,0 +1,102 @@
+set $mod Mod4
+font pango:Hack Nerd Font 10
+bindsym $mod+Shift+r restart
+# Mous Focus --------------------------------------------------------------------------------------------------------------
+focus_follows_mouse no
+# Window Border------------------------------------------------------------------------------------------------------------
+default_border pixel 1
+hide_edge_borders smart
+set $Border_Color #ffffff
+set $Border_Color_2 #555555
+client.focused          $Border_Color $Border_Color #ffffff $Border_Color
+client.unfocused        $Border_Color_2 $Border_Color_2 #ffffff $Border_Color_2
+client.focused_inactive $Border_Color_2 $Border_Color_2 #ffffff $Border_Color_2
+client.urgent           #E53935 #E53935 #ffffff #E53935
+# Panel -------------------------------------------------------------------------------------------------------------------
+bar { 
+ status_command i3status
+ mode hide
+ modifier Mod4 
+}
+# Mouse Speed -------------------------------------------------------------------------------------------------------------
+exec_always --no-startup-id xinput set-prop "$(xinput list --name-only | grep -i touch)" "libinput Accel Speed" 0.7
+exec_always --no-startup-id xinput set-prop "$(xinput list --name-only | grep -i Glide)" "libinput Accel Speed" 0.7
+# Keyboard Shortcuts ======================================================================================================
+# Sound and Screen Light --------------------------------------------------------------------------------------------------
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# Apps --------------------------------------------------------------------------------------------------------------------
+bindsym $mod+Return       exec --no-startup-id xfce4-terminal
+bindsym $mod+Shift+Return exec --no-startup-id firefox
+bindsym $mod+c            kill
+# Jump To Next Workspace --------------------------------------------------------------------------------------------------
+bindsym $mod+u      workspace number 1
+bindsym $mod+i      workspace number 2
+bindsym $mod+o      workspace number 3
+bindsym $mod+p      workspace number 4
+bindsym $mod+m      workspace number 5
+bindsym $mod+comma  workspace number 6
+bindsym $mod+period workspace number 7
+bindsym $mod+slash  workspace number 8
+# Jump To Next Window -----------------------------------------------------------------------------------------------------
+bindsym $mod+h focus left
+bindsym $mod+k focus up
+bindsym $mod+j focus down
+bindsym $mod+l focus right
+# Jump To Next (Tilling || Floating) --------------------------------------------------------------------------------------
+bindsym $mod+space focus mode_toggle
+# Jump  The Parent Container ----------------------------------------------------------------------------------------------
+bindsym $mod+a focus parent
+# Jump  Ths Child Container -----------------------------------------------------------------------------------------------
+bindsym $mod+Shift+a focus child
+# Move Window To Next Workspace -------------------------------------------------------------------------------------------
+bindsym $mod+Shift+u      move container to workspace number 1
+bindsym $mod+Shift+i      move container to workspace number 2
+bindsym $mod+Shift+o      move container to workspace number 3
+bindsym $mod+Shift+p      move container to workspace number 4
+bindsym $mod+Shift+m      move container to workspace number 5
+bindsym $mod+Shift+comma  move container to workspace number 6
+bindsym $mod+Shift+period move container to workspace number 7
+bindsym $mod+Shift+slash  move container to workspace number 8
+# Move Wondow To The (Left || Right || Top || Bottom) Screen --------------------------------------------------------------
+set $Move_Speed_a 100 px
+set $Move_Speed_b 10 px
+
+bindsym $mod+Shift+h move left $Move_Speed_a
+bindsym $mod+Shift+k move up $Move_Speed_a
+bindsym $mod+Shift+j move down $Move_Speed_a
+bindsym $mod+Shift+l move right $Move_Speed_a
+
+bindsym $mod+Shift+Left move left $Move_Speed_b
+bindsym $mod+Shift+Up move up $Move_Speed_b
+bindsym $mod+Shift+Down move down $Move_Speed_b
+bindsym $mod+Shift+Right move right $Move_Speed_b
+# Change Layout Mode {Tabs || Split || (Tilling || Floating)} -------------------------------------------------------------
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+# Split Direction (Vertical || Horizontal) --------------------------------------------------------------------------------
+bindsym $mod+Shift+semicolon split h
+bindsym $mod+semicolon split v
+# Resize Splits Windows ---------------------------------------------------------------------------------------------------
+bindsym $mod+y mode "resize"
+set $Move_Speed_c 100 px
+set $Move_Speed_d 10 ppt
+set $Move_Speed_e 10 px
+set $Move_Speed_f 1 ppt
+mode "resize" {
+        bindsym h 	resize shrink width  $Move_Speed_c or $Move_Speed_d
+        bindsym k 	resize shrink height $Move_Speed_c or $Move_Speed_d
+        bindsym j 	resize grow height   $Move_Speed_c or $Move_Speed_d
+        bindsym l 	resize grow width    $Move_Speed_c or $Move_Speed_d
+        bindsym Left 	resize shrink width  $Move_Speed_e or $Move_Speed_f
+        bindsym Up 	resize shrink height $Move_Speed_e or $Move_Speed_f
+        bindsym Down 	resize grow height   $Move_Speed_e or $Move_Speed_f
+        bindsym Right 	resize grow width    $Move_Speed_e or $Move_Speed_f
+        bindsym Return mode "default"
+}
