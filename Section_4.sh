@@ -2,6 +2,7 @@
 mkdir ~/.config
 cp -r Configs/i3 ~/.config
 cp Configs/bashrc ~/.bashrc
+cp -r Configs/kitty ~/.config
 git config --global user.name "Nabil"
 git config --global user.email "Nabil@gmail.com"
 
@@ -10,7 +11,7 @@ sudo pacman -Sy
 sudo pacman -S xorg-server xorg-xinit xorg-xinput xorg-xbacklight xsel xclip
 sudo pacman -S ly
 sudo pacman -S i3-wm i3status
-sudo pacman -S xfce4-terminal
+sudo pacman -S xfce4-terminal kitty
 sudo pacman -S ttf-hack-nerd 
 sudo pacman -S firefox
 sudo systemctl enable ly
@@ -33,41 +34,4 @@ sudo systemctl start sshd
 # DELL Laptop
 sudo pacman -S --noconfirm broadcom-wl
 sudo pacman -S --noconfirm xf86-video-intel
-
-# [More] ===============================================
-# Firefox Config
-# about:config
-    full-screen-api.ignore-widgets = true
-# Neovim
-suod pacman -S --noconfirm neovim
-sudo pacman -S --noconfirm lua
-# Tools
-sudo pacman -S --noconfirm btop
-sudo pacman -S --noconfirm yazi
-sudo pacman -S --noconfirm cpupower
-sudo pacman -S --noconfirm wget
-sudo pacman -S --noconfirm curl
-sudo pacman -S --noconfirm zip unxip
-sudo pacman -S --noconfirm man
-sudo pacman -S --noconfirm git
-sudo pacman -S --noconfirm fastfetch
-
-sudo pacman -S --noconfirm python3
-sudo pacman -S --noconfirm nodejs
-sudo pacman -S --noconfirm npm
-
-
-# Install Yay helper
-sudo pacman -S --needed base-devel git
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-
-
-
-
-
-
-
-
 
