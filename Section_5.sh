@@ -22,6 +22,15 @@ sudo pacman -S tree-sitter
 sudo npm install -g neovim
 sudo pacman -S python-pynvim
 
+sudo pacman -S ruby
+sudo gem install neovim
+
+sudo pacman -S perl
+	$ cpan
+	$ install Neovim::Ext
+	$ exit
+
+
 sudo pacman -S --noconfirm lua51
 sudo pacman -S --noconfirm luarocks
 sudo pacman -S imagemagick
@@ -44,6 +53,7 @@ sudo pacman -S --noconfirm zip unxip
 sudo pacman -S --noconfirm man
 sudo pacman -S --noconfirm git
 sudo pacman -S --noconfirm fastfetch
+sudo pacman -S --noconfirm tree
 
 sudo pacman -S --noconfirm python3
 sudo pacman -S --noconfirm nodejs
@@ -54,4 +64,13 @@ sudo pacman -S --needed base-devel git
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+
+sudo pacman -S --noconfirm rofi-emoji
+sudo pacman -S --noconfirm noto-fonts-emoji
+sudo pacman -S --noconfirm papirus-icon-theme
+# Arabic Fonts
+sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk ttf-dejavu ttf-liberation
+# Keyboard Layout
+sudo pacman -S --noconfirm xorg-setxkbmap
+sudo pacman -S --noconfirm xkeyboard-config
 
