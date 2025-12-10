@@ -74,3 +74,11 @@ sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk ttf-dejavu ttf-liberation
 sudo pacman -S --noconfirm xorg-setxkbmap
 sudo pacman -S --noconfirm xkeyboard-config
 
+# Vim =====================================================================
+## Step 1 =================================================================
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+## Step 2 =================================================================
+cp -r Configs/vimrc ~/.vimrc
+## Step 3 =================================================================
+:PlugInstall
