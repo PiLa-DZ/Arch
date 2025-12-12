@@ -79,6 +79,21 @@ sudo pacman -S --noconfirm xkeyboard-config
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ## Step 2 =================================================================
-cp -r Configs/vimrc ~/.vimrc
+cp Configs/vimrc ~/.vimrc
 ## Step 3 =================================================================
 :PlugInstall
+
+# Zsh =====================================================================
+sudo pacman -S zsh zsh-completions
+sudo pacman -S curl wget git
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+cp Configs/zshrc ~/.zshrc
+chsh -s $(which zsh)
+# reboot
+
+# Yazi ====================================================================
+sudo pacman -S yazi
+cd -r Configs/yazi ~/.config
+# ya pkg add dangooddd/kanagawa
+# ya pkg add yazi-rs/plugins:full-border
