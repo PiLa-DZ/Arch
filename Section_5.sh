@@ -97,3 +97,23 @@ sudo pacman -S yazi
 cd -r Configs/yazi ~/.config
 # ya pkg add dangooddd/kanagawa
 # ya pkg add yazi-rs/plugins:full-border
+
+# fzf =====================================================================
+sudo pacman -S fzf
+sudo pacman -S bat
+sudo pacman -S eza
+
+fzf --height 40% --layout reverse --border
+fzf --preview "bat --color=always {}" --style full --height 50%
+
+source <(fzf --zsh)
+alias ff='vim $(fzf --preview "bat --color=always {}" --style full)'
+alias fd='cd $(find . -type d | fzf --preview "eza --colour=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions {}" --style full)'
+alias fe='cd $(find . -type d | fzf --preview "tree -C {}" --style full)'
+
+# eza  =====================================================================
+sudo pacman -S eza
+eza --colour=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions
+eza --tree --level=2
+alias ll='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=1'
+alias lh='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -a --tree --level=1'
