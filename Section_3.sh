@@ -8,6 +8,11 @@ nmcli d wifi list
 nmcli d wifi connect SSID password WiFi-Password
 
 # Step [2] ===============================================
+pacman -S git
+git clone https://github.com/pila-dz/arch.git
+vim arch/section_3.sh
+
+# Step [3] ===============================================
 # TTY Fonts
 pacman -S terminus-font
 setfont ter-132b
@@ -15,15 +20,10 @@ vim /etc/vconsole.conf
     FONT=ter-132b
 reboot
 
-# Step [3] ===============================================
+# Step [4] ===============================================
 # Power Button Suspend
 vim /etc/systemd/logind.conf
     HandlePowerKey=suspend
-
-# Step [4] ===============================================
-pacman -S git
-git clone https://github.com/pila-dz/arch.git
-vim arch/section_3.sh
 
 # Step [5] ===============================================
 # Configuration Local

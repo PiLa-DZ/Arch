@@ -1,4 +1,4 @@
-# Step [1] ===============================================
+# Configs ================================================
 mkdir ~/.config
 cp -r Configs/i3 ~/.config
 cp Configs/bashrc ~/.bashrc
@@ -6,32 +6,53 @@ cp -r Configs/kitty ~/.config
 git config --global user.name "Nabil"
 git config --global user.email "Nabil@gmail.com"
 
-# Step [2] ===============================================
+# Display Server =========================================
 sudo pacman -Sy
 sudo pacman -S xorg-server xorg-xinit xorg-xinput xorg-xbacklight xsel xclip
-sudo pacman -S ly
-sudo pacman -S i3-wm i3status
-sudo pacman -S xfce4-terminal kitty
-sudo pacman -S ttf-hack-nerd 
-sudo pacman -S firefox
-sudo systemctl enable ly
-sudo systemctl start ly
 
-# Step [3] ===============================================
-# Vim --> Gvim
+# Display Manager ========================================
+sudo pacman -S lightdm lightdm-gtk-greeter
+
+# Window Manager =========================================
+sudo pacman -S i3-wm i3status
+
+# Terminals ==============================================
+sudo pacman -S xfce4-terminal kitty
+
+# Font ===================================================
+sudo pacman -S ttf-hack-nerd 
+
+# AUR Helper =============================================
+sudo pacman -S --needed base-devel git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+# Browsers ===============================================
+sudo pacman -S firefox
+yay -S brave-bin
+
+# Gvim ===================================================
 sudo pacman -Rns vim
 sudo pacman -S gvim
-# TouchPad Config
+
+# TouchPad Config ========================================
 sudo cp Configs/90-thuchpad.conf /etc/X11/xorg.conf.d/
-# Audio
+
+# Audio ==================================================
 sudo pacman -S --noconfirm pulseaudio
 sudo pacman -S --noconfirm alsa-utils
 sudo pacman -S --noconfirm pavucontrol
-# Open SSH
+
+# Open SSH ===============================================
 sudo pacman -S openssh
 sudo systemctl enable sshd
 sudo systemctl start sshd
-# DELL Laptop
+
+# DELL Laptop ============================================
 sudo pacman -S --noconfirm broadcom-wl
 sudo pacman -S --noconfirm xf86-video-intel
 
+# Enable Display Manager =================================
+sudo systemctl enable lightdm
+sudo systemctl start lightdm

@@ -1,6 +1,8 @@
 set $mod Mod4
-font pango:Hack Nerd Font 10
+font pango:Hack Nerd Font 12
 bindsym $mod+Shift+r restart
+# Keyboad Layout Arabic ---------------------------------------------------------------------------------------------------
+exec --no-startup-id setxkbmap -layout us,ara -option grp:alt_shift_toggle
 # Mous Focus --------------------------------------------------------------------------------------------------------------
 focus_follows_mouse no
 # Window Border------------------------------------------------------------------------------------------------------------
@@ -14,14 +16,13 @@ client.focused_inactive $Border_Color_2 $Border_Color_2 #ffffff $Border_Color_2
 client.urgent           #E53935 #E53935 #ffffff #E53935
 # Panel -------------------------------------------------------------------------------------------------------------------
 bar { 
- status_command i3status
+  status_command i3status
  mode hide
- modifier Mod4 
+ modifier Mod4
 }
 # Mouse Speed -------------------------------------------------------------------------------------------------------------
 exec_always --no-startup-id xinput set-prop "$(xinput list --name-only | grep -i touch)" "libinput Accel Speed" 0.7
 exec_always --no-startup-id xinput set-prop "$(xinput list --name-only | grep -i Glide)" "libinput Accel Speed" 0.7
-# Keyboard Shortcuts ======================================================================================================
 # Sound and Screen Light --------------------------------------------------------------------------------------------------
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -31,8 +32,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 # Apps --------------------------------------------------------------------------------------------------------------------
-bindsym $mod+Return       exec --no-startup-id xfce4-terminal
-bindsym $mod+Shift+Return exec --no-startup-id firefox
+bindsym $mod+Return       exec --no-startup-id kitty
+bindsym $mod+Shift+Return exec --no-startup-id brave
+bindsym $mod+d       exec --no-startup-id dmenu_run
 bindsym $mod+c            kill
 # Jump To Next Workspace --------------------------------------------------------------------------------------------------
 bindsym $mod+u      workspace number 1

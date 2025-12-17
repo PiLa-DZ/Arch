@@ -25,3 +25,11 @@ function y() {
 
 alias cpu="sudo cpupower --cpu all frequency-set  --max"
 alias gitauto='git add .; git commit -m "$(date)"; git push'
+
+source <(fzf --zsh)
+alias ff='vim $(fzf --preview "bat --color=always {}" --style full)'
+alias fd='cd $(find . -type d | fzf --preview "eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}" --style full)'
+
+alias ll='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=1'
+alias lh='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -a --tree --level=1'
+
