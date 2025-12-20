@@ -59,3 +59,5 @@ set ttimeout notimeout
 set nocompatible
 set clipboard=unnamedplus
 autocmd VimEnter * normal! zz
+
+nnoremap <F5> a<C-R>=strftime("%d/%m/%Y")<CR><Esc>

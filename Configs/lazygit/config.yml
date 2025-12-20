@@ -1,0 +1,43 @@
+gui:
+  showIcons: true
+  border: 'rounded' # خيارات أخرى: 'single' | 'double' | 'hidden'
+  timeFormat: "2006-01-02"
+  # commitLength: 60
+  theme:
+    allGraphColors:
+      - '#f5c2e7' # وردي
+      - '#89b4fa' # أزرق
+      - '#a6e3a1' # أخضر
+      - '#fab387' # برتقالي
+      - '#f9e2af' # أصفر
+    activeBorderColor:
+      - '#b4befe' # لون الإطار النشط (بنفسجي فاتح)
+      - 'bold'
+    inactiveBorderColor:
+      - '#6c7086' # لون الإطارات غير النشطة
+    optionsTextColor:
+      - '#89b4fa' # لون نصوص الخيارات في الأسفل
+    selectedLineBgColor:
+      - '#313244' # لون خلفية السطر المختار
+    cherryPickedCommitBgColor:
+      - '#45475a'
+    cherryPickedCommitFgColor:
+      - '#fab387'
+    unstagedChangesColor:
+      - '#f38ba8' # لون التعديلات التي لم تضف (أحمر)
+    defaultFgColor:
+      - '#cdd6f4' # لون النص الأساسي
+    selectedRangeBgColor:
+      - '#313244'
+  mainPanelAggregateClick: false
+  showFileTree: true # لعرض الملفات بشكل شجري (مجلدات) بدل قائمة مسطحة
+# git:
+# pagers:
+# - colorArg: always
+# pager: delta --dark --paging=never --line-numbers --hyperlinks  --side-by-side
+git:
+  parseEmoji: true
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never --line-numbers --side-by-side
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
