@@ -53,6 +53,13 @@ sudo systemctl start sshd
 sudo pacman -S --noconfirm broadcom-wl
 sudo pacman -S --noconfirm xf86-video-intel
 
+# Install Steam ==========================================
+sudo vim /etc/pacman.conf
+#[multilib]
+#Include = /etc/pacman.d/mirrorlist
+sudo pacman -Syu
+sudo pacman -S steam
+
 # Enable Display Manager =================================
 sudo systemctl enable lightdm
 sudo systemctl start lightdm
