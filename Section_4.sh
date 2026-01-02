@@ -60,6 +60,14 @@ sudo vim /etc/pacman.conf
 sudo pacman -Syu
 sudo pacman -S steam
 
+# Enable Reflector =======================================
+sudo pacman -S reflector
+sudo reflector --save /etc/pacman.d/mirrorlist --country Germany --latest 20 -p https
+sudo systemctl enable reflector.service
+sudo systemctl start  reflector.service
+sudo systemctl enable reflector.timer
+sudo systemctl start  reflector.timer
+
 # Enable Display Manager =================================
 sudo systemctl enable lightdm
 sudo systemctl start lightdm
