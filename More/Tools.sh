@@ -10,6 +10,7 @@ sudo pacman -S --noconfirm git
 sudo pacman -S --noconfirm fastfetch
 sudo pacman -S --noconfirm tree
 sudo pacman -S --noconfirm tmux
+sudo pacman -S --noconfirm less
 
 sudo pacman -S --noconfirm lazygit
 sudo pacman -S --noconfirm fzf

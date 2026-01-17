@@ -5,6 +5,9 @@ cp Configs/bashrc ~/.bashrc
 cp -r Configs/kitty ~/.config
 git config --global user.name "Nabil"
 git config --global user.email "Nabil@gmail.com"
+git config --global core.editor "nvim" # Default Editor
+git config --global core.autucrlf input # In Linux
+git config --global diff.tool nvim # Default diff.tool
 
 # Display Server =========================================
 sudo pacman -Sy
