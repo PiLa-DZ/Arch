@@ -21,3 +21,6 @@ sudo pacman -S --noconfirm bat
 sudo pacman -S --noconfirm python3
 sudo pacman -S --noconfirm nodejs npm
 
+
+sudo pacman -S --noconfirm gemini-cli
+sudo pacman -S --noconfirm translate-shell
