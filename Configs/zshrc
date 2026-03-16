@@ -33,3 +33,6 @@ alias fd='cd $(find . -type d | fzf --preview "eza --colour=always --long --no-f
 alias ll='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=1'
 alias lh='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -a --tree --level=1'
 
+alias l='lazygit'
+
+eval "$(zoxide init zsh)"

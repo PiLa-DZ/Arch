@@ -31,7 +31,6 @@ alias fd='cd $(find . -type d | fzf --preview "eza --colour=always --long --no-f
 alias ll='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=1'
 alias lh='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -a --tree --level=1'
 
-
 PATH="/home/nabil/perl5/bin${PATH:+:${PATH}}"
 export PATH
 PERL5LIB="/home/nabil/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
@@ -44,3 +43,5 @@ PERL_MM_OPT="INSTALL_BASE=/home/nabil/perl5"
 export PERL_MM_OPT
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+eval "$(zoxide init bash)"
