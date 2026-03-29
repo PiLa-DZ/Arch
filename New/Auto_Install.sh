@@ -62,6 +62,9 @@ sudo pacman -S --noconfirm reflector # Enable Reflector
 # Wifi app
 # sudo pacman -S network-manager-applet
 
+# X11 for (Mouse, screen light, clipboard)
+sudo pacman -S --noconfirm xorg-xinput xorg-xbacklight xsel xclip
+
 # It hides the mouse cursor when you aren't using it.
 sudo pacman -S --noconfirm unclutter
 

@@ -5,9 +5,9 @@ cp Configs/bashrc ~/.bashrc
 cp -r Configs/kitty ~/.config
 git config --global user.name "Nabil"
 git config --global user.email "Nabil@gmail.com"
-git config --global core.editor "nvim" # Default Editor
+git config --global core.editor "nvim"  # Default Editor
 git config --global core.autucrlf input # In Linux
-git config --global diff.tool nvim # Default diff.tool
+git config --global diff.tool nvim      # Default diff.tool
 
 # Display Server =========================================
 sudo pacman -Sy
@@ -23,7 +23,7 @@ sudo pacman -S i3-wm i3status
 sudo pacman -S xfce4-terminal kitty
 
 # Font ===================================================
-sudo pacman -S ttf-hack-nerd 
+sudo pacman -S ttf-hack-nerd
 
 # AUR Helper =============================================
 sudo pacman -S --needed base-devel git
@@ -67,9 +67,9 @@ sudo pacman -S steam
 sudo pacman -S reflector
 sudo reflector --save /etc/pacman.d/mirrorlist --country Germany --latest 20 -p https
 sudo systemctl enable reflector.service
-sudo systemctl start  reflector.service
+sudo systemctl start reflector.service
 sudo systemctl enable reflector.timer
-sudo systemctl start  reflector.timer
+sudo systemctl start reflector.timer
 
 # Enable Display Manager =================================
 sudo systemctl enable lightdm
