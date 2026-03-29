@@ -4,6 +4,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
+sudo rm -rf yay
 echo "*** Install AUR Helper Done"
 
 # Browsers ===============================================
@@ -24,15 +25,12 @@ echo "*** TODO: Enter vim and run :PlugInstall"
 
 # Tmux ===================================================================
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-ehch "*** Clone Tmux plugin Done"
-
-set -g @plugin 'tmux-plugins/tpm'
-ehch "*** Set Tmux plugin Done"
+echo "*** Clone Tmux plugin Done"
 
 ~/.tmux/plugins/tpm/tpm
-ehch "*** Run Tmux plugin Done"
+echo "*** Run Tmux plugin Done"
 
-ehch "*** TODO: Enter Tmux and do [C+b I]"
+echo "*** TODO: Enter Tmux and do [C+b I]"
 
 # Zsh =====================================================================
 sudo pacman -S zsh zsh-completions
@@ -56,7 +54,7 @@ echo "*** TODO: Reboot System"
 
 echo "*** TODO: 1 --> Enter Tmux and do [C+b I]"
 echo "*** TODO: 2 --> Enter vim and run :PlugInstall"
-echo "TODO: 3 -->
+echo "*** TODO: 3 -->
 sudo nvim /etc/systemd/logind.conf
     HandlePowerKey=suspend
 "
