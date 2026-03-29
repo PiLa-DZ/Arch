@@ -1,0 +1,40 @@
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="simple"
+plugins=(
+  git
+  archlinux
+  bundler
+  macos
+  rake
+  rbenv
+  ruby
+  zsh-syntax-highlighting
+  colored-man-pages
+)
+source $ZSH/oh-my-zsh.sh
+
+export DEFAULT_USER=$USER
+export EDITOR="nvim"
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+alias cpu="sudo cpupower --cpu all frequency-set  --max"
+alias gitauto='git add .; git commit -m "$(date)"; git push'
+
+source <(fzf --zsh)
+alias ff='vim $(fzf --preview "bat --color=always {}" --style full)'
+alias fd='cd $(find . -type d | fzf --preview "eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions {}" --style full)'
+
+alias ll='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=1'
+alias lh='eza --colour=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -a --tree --level=1'
+
+alias l='lazygit'
+
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
+eval "$(zoxide init zsh)"

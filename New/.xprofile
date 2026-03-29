@@ -1,0 +1,4 @@
+dunst &
+exec kitty &
+exec unclutter & # It hides the mouse cursor when you aren't using it.
+exec udiskie &   # handles your USB drives and external hard disks.
