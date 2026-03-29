@@ -5,6 +5,7 @@
 # Dunst (Notifications)
 # Yazi (File Manager)
 # Lazygit (Git App)
+# Lazyvim (IDE)
 echo "*** Copy .config"
 cp -r .config ~/
 

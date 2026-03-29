@@ -50,6 +50,12 @@ echo "*** Change default shell Done"
 
 echo "*** TODO: Reboot System"
 
+# Github SSH Key ==========================================================
+mkdir -p ~/.ssh
+cd ~/.ssh
+ssh-keygen
+cd -
+
 # TODO: ===================================================================
 
 echo "*** TODO: 1 --> Enter Tmux and do [C+b I]"
