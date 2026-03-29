@@ -26,10 +26,6 @@ echo "*** TODO: Enter vim and run :PlugInstall"
 # Tmux ===================================================================
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "*** Clone Tmux plugin Done"
-
-~/.tmux/plugins/tpm/tpm
-echo "*** Run Tmux plugin Done"
-
 echo "*** TODO: Enter Tmux and do [C+b I]"
 
 # Zsh =====================================================================
