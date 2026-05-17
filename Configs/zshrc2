@@ -1,0 +1,59 @@
+# New ====================================
+# Gemini
+# Add this to your ~/.zshrc
+alias ask="gemini 2>/dev/null"
+
+# Dump project files into LLM-friendly Markdown format
+ai_dump() {
+  # 1. Core directories/files we always want to exclude
+  local default_ignores=(
+    "*/node_modules/*"
+    "*/prisma/migrations/*"
+    "*/src/generated/*"
+    "*package-lock.json"
+    "*.git/*"
+    "*.env"
+    "*.gitignore"
+  )
+
+  # 2. Start building the 'find' command arguments
+  # We start with '-type f' to search for files
+  local find_args=(-type f)
+
+  # 3. Append the default ignores to the find arguments
+  for pattern in "${default_ignores[@]}"; do
+    find_args+=(-not -path "$pattern")
+  done
+
+  # 4. Append any extra patterns passed as arguments to the command
+  # Example: ai_dump "*/tests/*" "*/errors/*"
+  for pattern in "$@"; do
+    find_args+=(-not -path "$pattern")
+  done
+
+  # 5. Run the find command and stream the formatted output
+  find . "${find_args[@]}" | while read -r file; do
+    # Determine code block syntax highlighting based on file extension
+    local lang="ts"
+    if [[ "$file" == *.json ]]; then
+      lang="json"
+    elif [[ "$file" == *.prisma ]]; then
+      lang="prisma"
+    elif [[ "$file" == *.md ]]; then
+      lang="markdown"
+    fi
+
+    echo -e "\n### FILE: $file\n\`\`\`$lang"
+    cat "$file"
+    echo -e "\`\`\`"
+  done
+}
+
+# How to use ai_dump --------------------------
+#$ source ~/.zshrc
+# Uses default ignores ------------------------
+#$ ai_dump
+# Custom Ignores ------------------------------
+#$ ai_dump "*/tests/*" "*/errors/*"
+# For X11: ------------------------------------
+#$ ai_dump "*/tests/*" | xclip -sel clip
